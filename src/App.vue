@@ -2,6 +2,7 @@
   <div id="app">
     <Home v-if="!isLogin"></Home>
     <Editor v-if="isLogin" :user="userData"></Editor>
+    
   </div>
 </template>
 
@@ -17,7 +18,7 @@ export default {
     };
   },
   created: function() {
-    firebase.auth().onAuthStateChanged( user => {
+    firebase.auth().onAuthStateChanged(user => {
       console.log(user);
       if (user) {
         this.isLogin = true;
